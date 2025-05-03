@@ -1,0 +1,28 @@
+name: Node.js CI
+
+On:
+ push:
+ branches : [main]
+ pull_request:[main]
+  branches : [main]
+  
+ jobs:
+   bulid:
+  runs -on: ubuntu-latest
+
+steps:
+-name: Checkout code
+users:action/checkout@v3
+
+-name: Setup Node.js
+user: actions/setup-node@v3
+with:
+node-version: '18'
+
+-name: Install dependencies
+user: npm install
+
+-name: Run tests
+run: npm test
+   
+  
